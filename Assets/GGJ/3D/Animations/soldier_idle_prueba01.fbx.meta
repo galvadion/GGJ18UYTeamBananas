@@ -1,16 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-<<<<<<< HEAD
 guid: 3c9f861564bb264479cd150de2c95c27
-timeCreated: 1517063813
-=======
-guid: 0a95590870ac641f19449debb06c2c6c
-timeCreated: 1517067201
->>>>>>> refs/remotes/origin/develop-agbo
-licenseType: Free
-=======
-guid: 3c9f861564bb264479cd150de2c95c27
->>>>>>> refs/remotes/origin/development
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
@@ -105,43 +94,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-<<<<<<< HEAD
-<<<<<<< HEAD
     clipAnimations: []
-=======
-    clipAnimations:
-    - serializedVersion: 16
-      name: Take 001
-      takeName: Take 001
-      firstFrame: 1
-      lastFrame: 21
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
->>>>>>> refs/remotes/origin/develop-agbo
-=======
-    clipAnimations: []
->>>>>>> refs/remotes/origin/development
     isReadable: 1
   meshes:
     lODScreenPercentages: []

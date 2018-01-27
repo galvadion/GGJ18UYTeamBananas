@@ -36,6 +36,7 @@ public class GGJCharacterController
 	{
 		characterController = GetComponent<CharacterController>();
 		_weapon = GetComponent<GGJCharacterWeapon>();
+		GameManager.instance.RegisterPlayer((int)_playerID, this.gameObject);
 	}
 
 	void Update()

@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 67c2b4945eb34f74b89071386838cbb8
 folderAsset: yes
 timeCreated: 1517063788
+=======
+guid: d4f50e906cccd4e96ab0388ade49065c
+folderAsset: yes
+timeCreated: 1517067192
+>>>>>>> refs/remotes/origin/develop-agbo
 licenseType: Free
 DefaultImporter:
   userData: 

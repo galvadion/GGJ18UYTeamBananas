@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+>>>>>>> refs/remotes/origin/develop-agbo
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -108,7 +112,57 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &19081204 stripped
+=======
+--- !u!1001 &34148470
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400056, guid: 0a95590870ac641f19449debb06c2c6c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.9501793
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 0a95590870ac641f19449debb06c2c6c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 0a95590870ac641f19449debb06c2c6c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.204731
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 0a95590870ac641f19449debb06c2c6c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 0a95590870ac641f19449debb06c2c6c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 0a95590870ac641f19449debb06c2c6c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 0a95590870ac641f19449debb06c2c6c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 0a95590870ac641f19449debb06c2c6c, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 0a95590870ac641f19449debb06c2c6c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 26dd56353e35b421798f6e35a8f28cc5, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0a95590870ac641f19449debb06c2c6c, type: 3}
+  m_IsPrefabParent: 0
+--- !u!1 &219290423
+>>>>>>> refs/remotes/origin/develop-agbo
 GameObject:
   m_PrefabParentObject: {fileID: 1249614895445074, guid: cb2e872aaf073a0489ee415652cc8e4e,
     type: 2}
@@ -374,6 +428,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 109113064}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -8845,6 +8900,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2080659952 stripped
+=======
+  m_GameObject: {fileID: 1131130442}
+  m_LocalRotation: {x: 0.26628584, y: 0.42430538, z: -0.13209477, w: 0.8553408}
+  m_LocalPosition: {x: -14.421033, y: 12.487801, z: -10.958498}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1148958833
+>>>>>>> refs/remotes/origin/develop-agbo
 GameObject:
   m_PrefabParentObject: {fileID: 1452436319844256, guid: cb2e872aaf073a0489ee415652cc8e4e,
     type: 2}
@@ -8998,6 +9064,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 2122443254}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -9005,6 +9072,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2134300188 stripped
+=======
+  m_GameObject: {fileID: 1329915943}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 219290424}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1433493838
+>>>>>>> refs/remotes/origin/develop-agbo
 GameObject:
   m_PrefabParentObject: {fileID: 1630335249730114, guid: cb2e872aaf073a0489ee415652cc8e4e,
     type: 2}
@@ -9046,6 +9125,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 2139367298}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -9053,6 +9133,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2142653779 stripped
+=======
+  m_GameObject: {fileID: 1433493838}
+  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1457625936
+>>>>>>> refs/remotes/origin/develop-agbo
 GameObject:
   m_PrefabParentObject: {fileID: 1675815807533798, guid: cb2e872aaf073a0489ee415652cc8e4e,
     type: 2}
@@ -9078,9 +9169,67 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 2144803550}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78280f6c2ead43f45ad9a13d7864ab21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+  m_GameObject: {fileID: 1457625936}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1033675531}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1835332003
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400056, guid: 053fa57f1fecc4f6db5671ffd8c64006, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.72409266
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 053fa57f1fecc4f6db5671ffd8c64006, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 053fa57f1fecc4f6db5671ffd8c64006, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.920706
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 053fa57f1fecc4f6db5671ffd8c64006, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 053fa57f1fecc4f6db5671ffd8c64006, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 053fa57f1fecc4f6db5671ffd8c64006, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 053fa57f1fecc4f6db5671ffd8c64006, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 053fa57f1fecc4f6db5671ffd8c64006, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 053fa57f1fecc4f6db5671ffd8c64006, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 998a6c0d111e949ac88da86ce624d6b8, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 053fa57f1fecc4f6db5671ffd8c64006, type: 3}
+  m_IsPrefabParent: 0
+>>>>>>> refs/remotes/origin/develop-agbo

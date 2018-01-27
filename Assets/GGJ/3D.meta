@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: df13eb1049cd12d408d2f12f67edfa6b
+<<<<<<< HEAD:Assets/GGJ/Prefabs.meta
+guid: 206f88f252f7ca1409a74f85cac79b92
 folderAsset: yes
-timeCreated: 1517063787
+timeCreated: 1517063980
+=======
+guid: 0b2df5df16fd146c49fb1ccbfcf8f735
+folderAsset: yes
+timeCreated: 1517067192
+>>>>>>> refs/remotes/origin/develop-agbo:Assets/GGJ/3D.meta
 licenseType: Free
 DefaultImporter:
   userData: 

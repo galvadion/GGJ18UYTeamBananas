@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 8470b343871fbb141b83dc6d4bc6137b
 timeCreated: 1517063812
+=======
+guid: b58e137c821f9434fbff7d708aa54143
+timeCreated: 1517067201
+>>>>>>> refs/remotes/origin/develop-agbo
 licenseType: Free
 NativeFormatImporter:
   mainObjectFileID: 2100000

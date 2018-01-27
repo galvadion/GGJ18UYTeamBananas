@@ -43,7 +43,7 @@ public class GGJCharacterController
 
 		yVelocity += gravity * Time.deltaTime;
 
-		if (Input.GetKeyDown(KeyCode.Space))
+		if ((InputManager.GetButtonDown("Jump", _playerID)))
 			Jump();
 
 		Movement();

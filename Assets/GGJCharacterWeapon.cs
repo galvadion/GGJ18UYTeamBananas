@@ -9,8 +9,6 @@ public class GGJCharacterWeapon : MonoBehaviour
 	private float currentCooldown = 0;
 	private Animator _animator;
 
-	public PlayerID _playerID;
-
 	private void Start()
 	{
 		_animator = GetComponent<Animator>();
@@ -23,14 +21,6 @@ public class GGJCharacterWeapon : MonoBehaviour
 			currentCooldown -= Time.deltaTime;
 			return;
 		}
-
-		if (InputManager.GetAxis("RightTrigger", _playerID) > 0.1 )
-		{
-			Attack();
-		}
-
-
-		
 	}
 
 	public void Attack()

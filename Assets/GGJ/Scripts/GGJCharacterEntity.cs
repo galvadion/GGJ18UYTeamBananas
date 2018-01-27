@@ -33,8 +33,15 @@ public class GGJCharacterEntity : MonoBehaviour
 	public bool isStunned
 	{ get; private set; }
 
+	public bool isAttacking
+	{ get; protected set; }
+
+	public bool hitSomething
+	{ get; protected set; }
+
 	private Animator _animator;
 	private GGJCharacterWeapon weapon;
+	private GGJCharacterController controller;
 
 	public System.Action<int> OnPlayerDeath = null;
 	private void RaiseOnPlayerDeath()
@@ -50,6 +57,9 @@ public class GGJCharacterEntity : MonoBehaviour
 			OnPlayerDamaged((int)playerID);
 	}
 
+	public Animator animator
+	{ get; private set; }
+
 	private void Start()
 	{
 		id = (int)playerID;
@@ -57,7 +67,11 @@ public class GGJCharacterEntity : MonoBehaviour
 		currentHealth = maxHealth;
 		_animator = GetComponent<Animator>();
 		weapon = GetComponent<GGJCharacterWeapon>();
+		controller = GetComponent<GGJCharacterController>();
 		isDead = false;
+		animator = GetComponentInChildren<Animator>();
+		isAttacking = false;
+		hitSomething = false;
 	}
 
 	public void GetDamage(float damage)
@@ -78,13 +92,14 @@ public class GGJCharacterEntity : MonoBehaviour
 
 	public void GetBlocked()
 	{
-		_animator.SetTrigger("ShieldBlock");
+		animator.SetTrigger("ShieldBlock");
+		AttackEnd();
 		Debug.Log("<b> BLOCKED </b>");
 	}
 
 	private void Die()
 	{
-		_animator.SetTrigger("Death");
+		animator.SetTrigger("Death");
 		isDead = true;
 		RaiseOnPlayerDeath();
 	}
@@ -93,5 +108,24 @@ public class GGJCharacterEntity : MonoBehaviour
 		yield return new WaitForSeconds(waitTime);
 		isStunned = false;
 		weapon.shield.EnableShield(!isStunned);
+	}
+
+	public void Attack()
+	{
+		isAttacking = true;
+		hitSomething = false;
+		weapon.Attack();
+	}
+
+	public void HitSomething()
+	{
+		hitSomething = true;
+	}
+
+	public void AttackEnd()
+	{
+		isAttacking = false;
+		hitSomething = false;
+		weapon.AttackEnd();
 	}
 }

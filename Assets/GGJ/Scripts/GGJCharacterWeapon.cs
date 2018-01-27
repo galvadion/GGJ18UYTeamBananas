@@ -9,13 +9,12 @@ public class GGJCharacterWeapon : MonoBehaviour
 	public GGJShield shield;
 	public float damage = 2f;
 	public float cooldown = 1f;
-	private float currentCooldown = 0;
-	private Animator _animator;
 	public GGJCharacterEntity ownerEntity;
+	private float currentCooldown = 0;
+
 
 	private void Start()
 	{
-		_animator = GetComponent<Animator>();
 		weaponDamageTrigger.SetDamage(damage);
 		weaponDamageTrigger.EnableTrigger(false);
 	}
@@ -37,17 +36,11 @@ public class GGJCharacterWeapon : MonoBehaviour
 
 	public void Attack()
 	{
-		DoAttack();
-	}
-
-	private void DoAttack()
-	{
 		if (currentCooldown > 0)
 			return;
 		weaponDamageTrigger.EnableTrigger(true);
 		currentCooldown = cooldown;
-		_animator.SetTrigger("SwordHit");
-
+		ownerEntity.animator.SetTrigger("SwordHit");
 	}
 
 	public void AttackEnd()

@@ -33,16 +33,10 @@ public class GGJTriggerDamage : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == "Player")
-		{
-			GGJCharacterEntity entity = other.gameObject.GetComponent<GGJCharacterEntity>();
-			if (entity == null)
-				return;
-			if (entity == ownerWeapon.ownerEntity)
-				return;
-			entity.GetDamage(_damage);
-
-		}
+		if (ownerWeapon.ownerEntity.isAttacking == false)
+			return;
+		if (ownerWeapon.ownerEntity.hitSomething == true)
+			return;
 
 		if (other.gameObject.tag == "Shield")
 		{
@@ -52,6 +46,17 @@ public class GGJTriggerDamage : MonoBehaviour
 			if (shield.ownerEntity == ownerWeapon.ownerEntity)
 				return;
 			ownerWeapon.ownerEntity.GetBlocked();
+
+		}
+		else if	(other.gameObject.tag == "Player")
+		{
+			GGJCharacterEntity entity = other.gameObject.GetComponent<GGJCharacterEntity>();
+			if (entity == null)
+				return;
+			if (entity == ownerWeapon.ownerEntity)
+				return;
+			ownerWeapon.ownerEntity.HitSomething();
+			entity.GetDamage(_damage);
 
 		}
 	}

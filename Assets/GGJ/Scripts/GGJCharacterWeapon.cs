@@ -44,7 +44,7 @@ public class GGJCharacterWeapon : MonoBehaviour
 			return;
 		weaponDamageTrigger.EnableTrigger(true);
 		currentCooldown = cooldown;
-		_animator.Play("SwordHit");
+		_animator.SetTrigger("SwordHit");
 
 	}
 

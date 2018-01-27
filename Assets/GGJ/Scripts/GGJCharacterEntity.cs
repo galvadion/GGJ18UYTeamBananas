@@ -21,10 +21,15 @@ public class GGJCharacterEntity : MonoBehaviour
 	public PlayerID playerID;
 
 	public int id
-	{ get; protected set;  }
+	{ get; private set; }
 
 	public float currentHealth
-	{ get; protected set; }
+	{ get; private set; }
+
+	public bool isDead
+	{ get; private set; }
+
+	private Animator _animator;
 
 	public System.Action<int> OnPlayerDeath = null;
 	private void RaiseOnPlayerDeath()
@@ -45,6 +50,8 @@ public class GGJCharacterEntity : MonoBehaviour
 		id = (int)playerID;
 		GameManager.instance.RegisterPlayer(this);
 		currentHealth = maxHealth;
+		_animator = GetComponent<Animator>();
+		isDead = false;
 	}
 
 	public void GetDamage(float damage)
@@ -55,7 +62,14 @@ public class GGJCharacterEntity : MonoBehaviour
 		if (currentHealth <= 0)
 		{
 			currentHealth = 0;
-			RaiseOnPlayerDeath();
+			Die();
 		}
+	}
+
+	private void Die()
+	{
+		_animator.SetTrigger("Death");
+		isDead = true;
+		RaiseOnPlayerDeath();
 	}
 }

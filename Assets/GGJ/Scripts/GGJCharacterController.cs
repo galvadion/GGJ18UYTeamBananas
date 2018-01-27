@@ -31,6 +31,10 @@ public class GGJCharacterController
 
 	void Update()
 	{
+		if (_ownerEntity.isDead)
+			return;
+		if (_ownerEntity.isStunned)
+			return;
 		movInput = new Vector3(InputManager.GetAxis("Horizontal", _ownerEntity.playerID), 0, InputManager.GetAxis("Vertical", _ownerEntity.playerID)).normalized;
 		lookInput = new Vector3(InputManager.GetAxis("LookHorizontal", _ownerEntity.playerID), 0, InputManager.GetAxis("LookVertical", _ownerEntity.playerID)).normalized;
 		yVelocity += _ownerEntity.gravity * Time.deltaTime;
@@ -59,7 +63,6 @@ public class GGJCharacterController
 
 		float targetSpeed = ((isRunning == true) ? _ownerEntity.runSpeed : _ownerEntity.walkSpeed) * movInput.magnitude;
 		xzVelocity = Mathf.SmoothDamp(xzVelocity, targetSpeed, ref speedSmoothVelocity, _ownerEntity.speedSmoothTime);
-
 		currentVelocity = movInput * xzVelocity + Vector3.up * yVelocity;
 		_characterController.Move(currentVelocity * Time.deltaTime);
 

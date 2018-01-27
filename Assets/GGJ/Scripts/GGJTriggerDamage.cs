@@ -43,5 +43,16 @@ public class GGJTriggerDamage : MonoBehaviour
 			entity.GetDamage(_damage);
 
 		}
+
+		if (other.gameObject.tag == "Shield")
+		{
+			GGJShield shield = other.gameObject.GetComponent<GGJShield>();
+			if (shield == null)
+				return;
+			if (shield.ownerEntity == ownerWeapon.ownerEntity)
+				return;
+			ownerWeapon.ownerEntity.GetBlocked();
+
+		}
 	}
 }

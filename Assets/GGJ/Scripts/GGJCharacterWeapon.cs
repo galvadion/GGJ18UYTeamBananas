@@ -6,6 +6,7 @@ using TeamUtility.IO;
 public class GGJCharacterWeapon : MonoBehaviour
 {
 	public GGJTriggerDamage weaponDamageTrigger;
+	public GGJShield shield;
 	public float damage = 2f;
 	public float cooldown = 1f;
 	private float currentCooldown = 0;
@@ -31,6 +32,7 @@ public class GGJCharacterWeapon : MonoBehaviour
 	{
 		ownerEntity = entity;
 		weaponDamageTrigger.SetOwner(this);
+		shield.SetOwner(ownerEntity);
 	}
 
 	public void Attack()
@@ -44,7 +46,7 @@ public class GGJCharacterWeapon : MonoBehaviour
 			return;
 		weaponDamageTrigger.EnableTrigger(true);
 		currentCooldown = cooldown;
-		_animator.Play("SwordHit");
+		_animator.SetTrigger("SwordHit");
 
 	}
 

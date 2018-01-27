@@ -7,6 +7,7 @@ public class GGJCharacterEntity : MonoBehaviour
 {
 	[Header("Stats")]
 	public float maxHealth;
+	public float stunTime = 1f;
 
 	public float walkSpeed = 3f;
 	public float runSpeed = 6f;
@@ -21,10 +22,19 @@ public class GGJCharacterEntity : MonoBehaviour
 	public PlayerID playerID;
 
 	public int id
-	{ get; protected set;  }
+	{ get; private set; }
 
 	public float currentHealth
-	{ get; protected set; }
+	{ get; private set; }
+
+	public bool isDead
+	{ get; private set; }
+
+	public bool isStunned
+	{ get; private set; }
+
+	private Animator _animator;
+	private GGJCharacterWeapon weapon;
 
 	public System.Action<int> OnPlayerDeath = null;
 	private void RaiseOnPlayerDeath()
@@ -45,17 +55,43 @@ public class GGJCharacterEntity : MonoBehaviour
 		id = (int)playerID;
 		GameManager.instance.RegisterPlayer(this);
 		currentHealth = maxHealth;
+		_animator = GetComponent<Animator>();
+		weapon = GetComponent<GGJCharacterWeapon>();
+		isDead = false;
 	}
 
 	public void GetDamage(float damage)
 	{
 		currentHealth -= damage;
+		isStunned = true;
+		weapon.shield.EnableShield(!isStunned);
+		StartCoroutine(UnStun(stunTime));
+
 		RaiseOnPlayerDamaged();
 
 		if (currentHealth <= 0)
 		{
 			currentHealth = 0;
-			RaiseOnPlayerDeath();
+			Die();
 		}
+	}
+
+	public void GetBlocked()
+	{
+		_animator.SetTrigger("ShieldBlock");
+		Debug.Log("<b> BLOCKED </b>");
+	}
+
+	private void Die()
+	{
+		_animator.SetTrigger("Death");
+		isDead = true;
+		RaiseOnPlayerDeath();
+	}
+	 IEnumerator UnStun(float waitTime)
+	{
+		yield return new WaitForSeconds(waitTime);
+		isStunned = false;
+		weapon.shield.EnableShield(!isStunned);
 	}
 }

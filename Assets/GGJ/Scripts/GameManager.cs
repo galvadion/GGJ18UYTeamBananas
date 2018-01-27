@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 
-	private GameObject[] players;
+	private GGJCharacterEntity[] players;
 
 	void Awake()
 	{
@@ -26,15 +26,15 @@ public class GameManager : MonoBehaviour
 
 	private void InitGame()
 	{
-		players = new GameObject[2];
+		players = new GGJCharacterEntity[2];
 	}
 
-	public void RegisterPlayer(int id, GameObject playerGameObject)
+	public void RegisterPlayer(GGJCharacterEntity playerEntity)
 	{
-		players[id] = playerGameObject;
+		players[playerEntity.id] = playerEntity;
 	}
 
-	public GameObject GetPlayer(int id)
+	public GGJCharacterEntity GetPlayer(int id)
 	{
 		return players[id];
 	}

@@ -22,8 +22,8 @@ public class GGJCharacterController
 	private float rotSmoothVelocity;
 	private float currentHorizontalSpeed;
 	private Vector3 movInput;
-	private float mov_xInput;
-	private float mov_yInput;
+	private Vector3 lookInput;
+
 
 	private bool isRunning = false;
 	private Vector3 currentVelocity;
@@ -38,21 +38,17 @@ public class GGJCharacterController
 
 	void Update()
 	{
-		mov_xInput = InputManager.GetAxis("Horizontal", _playerID);
-		mov_yInput = InputManager.GetAxis("Vertical", _playerID);
-		Debug.Log(movInput);
-		movInput = new Vector3(mov_xInput,0, mov_yInput).normalized;
+		movInput = new Vector3(InputManager.GetAxis("Horizontal", _playerID), 0, InputManager.GetAxis("Vertical", _playerID)).normalized;
+		lookInput = new Vector3(InputManager.GetAxis("LookHorizontal", _playerID), 0, InputManager.GetAxis("LookVertical", _playerID)).normalized;
 
 		yVelocity += gravity * Time.deltaTime;
 
-		////Siempre que haya input, vamos a rotar y aplicar movimiento
-		//if (movInput != Vector2.zero)
-		//	Rotate();
-
-		if (Input.GetKeyDown(KeyCode.Space))
+		if ((InputManager.GetButtonDown("Jump", _playerID)))
 			Jump();
 
 		Movement();
+		if (lookInput != Vector3.zero)
+			Rotate();
 
 	}
 
@@ -81,13 +77,14 @@ public class GGJCharacterController
 	private void Rotate()
 	{
 		////Calculamos rotacion según el dirInput y le sumamos rotación según la cámara
-		//float targetRot = Mathf.Atan2(directionInput.x, directionInput.y) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
-		////Obtenemos la cantidad de rotación suavizada (https://docs.unity3d.com/ScriptReference/Mathf.SmoothDampAngle.html)
-		//float smoothedRot = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRot, ref rotSmoothVelocity, rotSmoothTime);
-		////Aplicamos la rotación suavizada a nuestra rotación local. Sería lo mismo escribir:
-		//// transform.localEulerAngles = new Vector3(0, smoothedRot, 0);
-		//// o también:
-		////transform.localRotation = Quaternion.Euler(0, smoothedRot, 0);
-		//transform.localEulerAngles = Vector3.up * smoothedRot;
+		float targetRot = Mathf.Atan2(lookInput.x, lookInput.z);
+		Debug.Log(Mathf.Rad2Deg * targetRot);
+		//Obtenemos la cantidad de rotación suavizada (https://docs.unity3d.com/ScriptReference/Mathf.SmoothDampAngle.html)
+		float smoothedRot = Mathf.SmoothDampAngle(transform.eulerAngles.y, Mathf.Rad2Deg * targetRot, ref rotSmoothVelocity, rotSmoothTime);
+		//Aplicamos la rotación suavizada a nuestra rotación local. Sería lo mismo escribir:
+		// transform.localEulerAngles = new Vector3(0, smoothedRot, 0);
+		// o también:
+		//transform.localRotation = Quaternion.Euler(0, smoothedRot, 0);
+		transform.localEulerAngles = Vector3.up * smoothedRot;
 	}
 }

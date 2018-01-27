@@ -14,7 +14,7 @@ public class GGJCharacterController
 
 
 	private bool isRunning = false;
-	private Vector3 currentVelocity;
+	public Vector3 currentVelocity;
 	private float yVelocity;
 	private float xzVelocity;
 	private CharacterController _characterController;
@@ -47,7 +47,9 @@ public class GGJCharacterController
 			Rotate();
 
 		if (InputManager.GetAxis("RightTrigger", _ownerEntity.playerID) > 0)
-			_weapon.Attack();
+			_ownerEntity.Attack();
+
+		UpdateAnimator();
 
 	}
 
@@ -77,5 +79,10 @@ public class GGJCharacterController
 		float targetRot = Mathf.Atan2(lookInput.x, lookInput.z);
 		float smoothedRot = Mathf.SmoothDampAngle(transform.eulerAngles.y, Mathf.Rad2Deg * targetRot, ref rotSmoothVelocity, _ownerEntity.rotSmoothTime);
 		transform.localEulerAngles = Vector3.up * smoothedRot;
+	}
+
+	private void UpdateAnimator()
+	{
+		_ownerEntity.animator.SetFloat("movSpeed", xzVelocity);
 	}
 }

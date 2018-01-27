@@ -24,9 +24,9 @@ public class GGJShield : MonoBehaviour
 	public void EnableShield(bool enableShield = true)
 	{
 		if (enableShield)
-			r.material.SetColor("_Color", Color.white);
-		else
 			r.material.SetColor("_Color", Color.red);
+		else
+			r.material.SetColor("_Color", Color.white);
 		col.enabled = enableShield;
 	}
 }

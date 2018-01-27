@@ -30,10 +30,13 @@ public class GGJCharacterController
 	private float yVelocity;
 	private float xzVelocity;
 	private CharacterController characterController;
+	private GGJCharacterWeapon _weapon;
 
 	void Start()
 	{
 		characterController = GetComponent<CharacterController>();
+		_weapon = GetComponent<GGJCharacterWeapon>();
+		GameManager.instance.RegisterPlayer((int)_playerID, this.gameObject);
 	}
 
 	void Update()
@@ -49,6 +52,9 @@ public class GGJCharacterController
 		Movement();
 		if (lookInput != Vector3.zero)
 			Rotate();
+
+		if (InputManager.GetAxis("RightTrigger", _playerID) > 0)
+			_weapon.Attack();
 
 	}
 

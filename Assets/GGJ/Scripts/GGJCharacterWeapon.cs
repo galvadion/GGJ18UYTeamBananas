@@ -5,13 +5,19 @@ using TeamUtility.IO;
 
 public class GGJCharacterWeapon : MonoBehaviour
 {
+	public GGJTriggerDamage weaponDamageTrigger;
+	public GGJShield shield;
+	public float damage = 2f;
 	public float cooldown = 1f;
 	private float currentCooldown = 0;
 	private Animator _animator;
+	public GGJCharacterEntity ownerEntity;
 
 	private void Start()
 	{
 		_animator = GetComponent<Animator>();
+		weaponDamageTrigger.SetDamage(damage);
+		weaponDamageTrigger.EnableTrigger(false);
 	}
 
 	private void Update()
@@ -19,8 +25,14 @@ public class GGJCharacterWeapon : MonoBehaviour
 		if (currentCooldown > 0)
 		{
 			currentCooldown -= Time.deltaTime;
-			return;
 		}
+	}
+
+	public void SetOwner(GGJCharacterEntity entity)
+	{
+		ownerEntity = entity;
+		weaponDamageTrigger.SetOwner(this);
+		shield.SetOwner(ownerEntity);
 	}
 
 	public void Attack()
@@ -30,8 +42,16 @@ public class GGJCharacterWeapon : MonoBehaviour
 
 	private void DoAttack()
 	{
+		if (currentCooldown > 0)
+			return;
+		weaponDamageTrigger.EnableTrigger(true);
 		currentCooldown = cooldown;
-		_animator.Play("SwordHit");
+		_animator.SetTrigger("SwordHit");
 
+	}
+
+	public void AttackEnd()
+	{
+		weaponDamageTrigger.EnableTrigger(false);
 	}
 }

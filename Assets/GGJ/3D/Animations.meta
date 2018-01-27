@@ -7,7 +7,11 @@ timeCreated: 1517063788
 guid: d4f50e906cccd4e96ab0388ade49065c
 folderAsset: yes
 timeCreated: 1517067192
+<<<<<<< HEAD
 >>>>>>> refs/remotes/origin/develop-agbo
+=======
+>>>>>>> 50356036cf2029d6a9be79d705b00b04090bc861
+>>>>>>> refs/remotes/origin/development
 licenseType: Free
 DefaultImporter:
   userData: 

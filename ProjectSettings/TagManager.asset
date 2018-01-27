@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Floor
+=======
+  - Shield
+>>>>>>> refs/remotes/origin/development
   layers:
   - Default
   - TransparentFX

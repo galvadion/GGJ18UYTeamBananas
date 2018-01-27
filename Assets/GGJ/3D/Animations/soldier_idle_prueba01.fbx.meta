@@ -1,5 +1,6 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: 3c9f861564bb264479cd150de2c95c27
 timeCreated: 1517063813
 =======
@@ -7,6 +8,9 @@ guid: 0a95590870ac641f19449debb06c2c6c
 timeCreated: 1517067201
 >>>>>>> refs/remotes/origin/develop-agbo
 licenseType: Free
+=======
+guid: 3c9f861564bb264479cd150de2c95c27
+>>>>>>> refs/remotes/origin/development
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
@@ -102,6 +106,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
 <<<<<<< HEAD
+<<<<<<< HEAD
     clipAnimations: []
 =======
     clipAnimations:
@@ -134,6 +139,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
 >>>>>>> refs/remotes/origin/develop-agbo
+=======
+    clipAnimations: []
+>>>>>>> refs/remotes/origin/development
     isReadable: 1
   meshes:
     lODScreenPercentages: []

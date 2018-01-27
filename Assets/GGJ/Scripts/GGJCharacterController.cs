@@ -17,63 +17,62 @@ public class GGJCharacterController
 	private Vector3 currentVelocity;
 	private float yVelocity;
 	private float xzVelocity;
-	private CharacterController characterController;
+	private CharacterController _characterController;
 	private GGJCharacterWeapon _weapon;
-	private GGJCharacterEntity ownerEntity;
+	private GGJCharacterEntity _ownerEntity;
 
 	void Start()
 	{
-		ownerEntity = GetComponent<GGJCharacterEntity>();
-		characterController = GetComponent<CharacterController>();
+		_ownerEntity = GetComponent<GGJCharacterEntity>();
+		_characterController = GetComponent<CharacterController>();
 		_weapon = GetComponent<GGJCharacterWeapon>();
+		_weapon.SetOwner(_ownerEntity);
 	}
 
 	void Update()
 	{
-		movInput = new Vector3(InputManager.GetAxis("Horizontal", ownerEntity.playerID), 0, InputManager.GetAxis("Vertical", ownerEntity.playerID)).normalized;
-		lookInput = new Vector3(InputManager.GetAxis("LookHorizontal", ownerEntity.playerID), 0, InputManager.GetAxis("LookVertical", ownerEntity.playerID)).normalized;
+		movInput = new Vector3(InputManager.GetAxis("Horizontal", _ownerEntity.playerID), 0, InputManager.GetAxis("Vertical", _ownerEntity.playerID)).normalized;
+		lookInput = new Vector3(InputManager.GetAxis("LookHorizontal", _ownerEntity.playerID), 0, InputManager.GetAxis("LookVertical", _ownerEntity.playerID)).normalized;
+		yVelocity += _ownerEntity.gravity * Time.deltaTime;
 
-		yVelocity += ownerEntity.gravity * Time.deltaTime;
-
-		if ((InputManager.GetButtonDown("Jump", ownerEntity.playerID)))
+		if ((InputManager.GetButtonDown("Jump", _ownerEntity.playerID)))
 			Jump();
 
 		Movement();
 		if (lookInput != Vector3.zero)
 			Rotate();
 
-		if (InputManager.GetAxis("RightTrigger", ownerEntity.playerID) > 0)
+		if (InputManager.GetAxis("RightTrigger", _ownerEntity.playerID) > 0)
 			_weapon.Attack();
 
 	}
 
 	private void Jump()
 	{
-		if (characterController.isGrounded)
-			yVelocity = Mathf.Sqrt(-2 * ownerEntity.gravity * ownerEntity.jumpHeight);
+		if (_characterController.isGrounded)
+			yVelocity = Mathf.Sqrt(-2 * _ownerEntity.gravity * _ownerEntity.jumpHeight);
 	}
 
 	private void Movement()
 	{
 		isRunning = Input.GetKey(KeyCode.LeftShift);
 
-		float targetSpeed = ((isRunning == true) ? ownerEntity.runSpeed : ownerEntity.walkSpeed) * movInput.magnitude;
-		xzVelocity = Mathf.SmoothDamp(xzVelocity, targetSpeed, ref speedSmoothVelocity, ownerEntity.speedSmoothTime);
+		float targetSpeed = ((isRunning == true) ? _ownerEntity.runSpeed : _ownerEntity.walkSpeed) * movInput.magnitude;
+		xzVelocity = Mathf.SmoothDamp(xzVelocity, targetSpeed, ref speedSmoothVelocity, _ownerEntity.speedSmoothTime);
 
 		currentVelocity = movInput * xzVelocity + Vector3.up * yVelocity;
-		characterController.Move(currentVelocity * Time.deltaTime);
+		_characterController.Move(currentVelocity * Time.deltaTime);
 
-		xzVelocity = new Vector2(characterController.velocity.x, characterController.velocity.z).magnitude;
+		xzVelocity = new Vector2(_characterController.velocity.x, _characterController.velocity.z).magnitude;
 
-		if (characterController.isGrounded)
+		if (_characterController.isGrounded)
 			yVelocity = -0.00001f;
 	}
 
 	private void Rotate()
 	{
 		float targetRot = Mathf.Atan2(lookInput.x, lookInput.z);
-		Debug.Log(Mathf.Rad2Deg * targetRot);
-		float smoothedRot = Mathf.SmoothDampAngle(transform.eulerAngles.y, Mathf.Rad2Deg * targetRot, ref rotSmoothVelocity, ownerEntity.rotSmoothTime);
+		float smoothedRot = Mathf.SmoothDampAngle(transform.eulerAngles.y, Mathf.Rad2Deg * targetRot, ref rotSmoothVelocity, _ownerEntity.rotSmoothTime);
 		transform.localEulerAngles = Vector3.up * smoothedRot;
 	}
 }

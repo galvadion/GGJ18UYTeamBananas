@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33590126558357888}
   - component: {fileID: 65155161797244508}
   - component: {fileID: 23177316836483926}
+  - component: {fileID: 114660111486566100}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -42,7 +43,7 @@ GameObject:
   - component: {fileID: 23531008794348546}
   m_Layer: 0
   m_Name: Graphics
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +96,7 @@ GameObject:
   - component: {fileID: 114774420382850926}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,8 +107,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1783915859411158}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.26, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.26, z: -1.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4451750227076786}
@@ -338,14 +339,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f8d114957ca624e91653640457021c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
+  maxHealth: 6
   walkSpeed: 6
   runSpeed: 6
   jumpHeight: 1
   gravity: -11
   speedSmoothTime: 0.2
-  rotSmoothTime: 0.2
+  rotSmoothTime: 0.05
   playerID: 0
+--- !u!114 &114660111486566100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1029811219091538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53042ae60d9e15f4d9e0ef636f6e9888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114774420382850926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -357,7 +369,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 170b6c20172ce7f49abc7ec6219a6fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponDamageTrigger: {fileID: 114660111486566100}
+  damage: 2
   cooldown: 1
+  ownerEntity: {fileID: 114318328840365690}
 --- !u!114 &114958115880568626
 MonoBehaviour:
   m_ObjectHideFlags: 1

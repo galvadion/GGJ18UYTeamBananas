@@ -6,7 +6,7 @@ using TeamUtility.IO;
 public class GGJCharacterEntity : MonoBehaviour
 {
 	[Header("Stats")]
-	public float health;
+	public float maxHealth;
 
 	public float walkSpeed = 3f;
 	public float runSpeed = 6f;
@@ -21,9 +21,10 @@ public class GGJCharacterEntity : MonoBehaviour
 	public PlayerID playerID;
 
 	public int id
-	{
-		get; protected set;
-	}
+	{ get; protected set;  }
+
+	public float currentHealth
+	{ get; protected set; }
 
 	public System.Action<int> OnPlayerDeath = null;
 	private void RaiseOnPlayerDeath()
@@ -43,17 +44,18 @@ public class GGJCharacterEntity : MonoBehaviour
 	{
 		id = (int)playerID;
 		GameManager.instance.RegisterPlayer(this);
+		currentHealth = maxHealth;
 	}
 
 	public void GetDamage(float damage)
 	{
-		health -= damage;
+		currentHealth -= damage;
 		RaiseOnPlayerDamaged();
 
-		if (health <= 0)
+		if (currentHealth <= 0)
 		{
-			health = 0;
+			currentHealth = 0;
+			RaiseOnPlayerDeath();
 		}
-		RaiseOnPlayerDeath();
 	}
 }

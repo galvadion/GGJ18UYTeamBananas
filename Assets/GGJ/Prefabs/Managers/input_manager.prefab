@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1906064786587150}
   m_LocalRotation: {x: 0.26628584, y: 0.42430538, z: -0.13209477, w: 0.8553408}
-  m_LocalPosition: {x: -14.421033, y: 12.487801, z: -10.958498}
+  m_LocalPosition: {x: -14.421033, y: 11.2278, z: -10.958498}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -236,7 +236,7 @@ MonoBehaviour:
       type: 3
       axis: 8
       joystick: 0
-    isExpanded: 0
+    isExpanded: 1
   - name: OSX_Gamepad
     axes:
     - name: Horizontal
@@ -607,7 +607,7 @@ MonoBehaviour:
       axis: 2
       joystick: 0
     isExpanded: 0
-  - name: XBox_360_Windows
+  - name: Windows_Gamepad_2
     axes:
     - name: Jump
       description: 
@@ -819,20 +819,20 @@ MonoBehaviour:
       type: 3
       axis: 8
       joystick: 0
-    - name: Right Trigger
+    - name: RightTrigger
       description: 
       positive: 0
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
-      gravity: 1
-      sensitivity: 1
+      gravity: 0
+      sensitivity: 1000
       snap: 0
       invert: 0
       type: 3
       axis: 9
-      joystick: 0
+      joystick: 1
     - name: DPAD Vertical
       description: 
       positive: 0
@@ -863,7 +863,7 @@ MonoBehaviour:
       joystick: 0
     isExpanded: 1
   playerOneDefault: Windows_Gamepad
-  playerTwoDefault: XBox_360_Windows
+  playerTwoDefault: Windows_Gamepad_2
   playerThreeDefault: 
   playerFourDefault: 
   dontDestroyOnLoad: 0

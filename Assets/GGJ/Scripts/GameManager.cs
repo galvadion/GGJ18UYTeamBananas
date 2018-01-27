@@ -10,15 +10,10 @@ public class GameManager : MonoBehaviour
 
 	void Awake()
 	{
-		//Check if instance already exists
 		if (instance == null)
-			//if not, set instance to this
 			instance = this;
-		//If instance already exists and it's not this:
 		else if (instance != this)
-			//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
 			Destroy(gameObject);
-		//Sets this to not be destroyed when reloading scene
 		DontDestroyOnLoad(gameObject);
 
 		InitGame();
@@ -32,10 +27,25 @@ public class GameManager : MonoBehaviour
 	public void RegisterPlayer(GGJCharacterEntity playerEntity)
 	{
 		players[playerEntity.id] = playerEntity;
+		playerEntity.OnPlayerDamaged += HandleOnPlayerDamaged;
+		playerEntity.OnPlayerDeath += HandleOnPlayerDeath;
+
 	}
 
 	public GGJCharacterEntity GetPlayer(int id)
 	{
 		return players[id];
+	}
+
+	private void HandleOnPlayerDamaged(int id)
+	{
+		Debug.Log("Player " + id + " damaged! Health = " + GetPlayer(id).currentHealth);
+	}
+
+	private void HandleOnPlayerDeath(int id)
+	{
+		Debug.Log("Player " + id + " died!");
+		GetPlayer(id).OnPlayerDamaged -= HandleOnPlayerDamaged;
+		GetPlayer(id).OnPlayerDeath -= HandleOnPlayerDeath;
 	}
 }

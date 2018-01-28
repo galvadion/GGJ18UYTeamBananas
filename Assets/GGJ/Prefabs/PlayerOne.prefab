@@ -1061,7 +1061,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3f151579e46c6f34eb62971d43ec1dbd, type: 2}
+  - {fileID: 2100000, guid: b25a5c521b7cc48aeabfddcce28e297c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f8d114957ca624e91653640457021c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 6
+  maxHealth: 20
   stunTime: 1
   walkSpeed: 4
   runSpeed: 6
@@ -1303,7 +1303,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  rayLength: 1
+  rayLength: 3
 --- !u!114 &114762314825350948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1329,8 +1329,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDamageTrigger: {fileID: 114068740190365212}
   shield: {fileID: 114762314825350948}
-  damage: 2
-  cooldown: 1
+  damage: 2.5
+  cooldown: 0.8
   ownerEntity: {fileID: 114318328840365690}
   trail: {fileID: 96744210489045624}
   collidersAnimator: {fileID: 95605964558521054}

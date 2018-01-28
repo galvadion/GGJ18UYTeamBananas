@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TeamUtility.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,12 +11,20 @@ public class GameManager : MonoBehaviour
 	public static GameManager instance;
 
 	private GGJCharacterEntity[] players;
+	private bool isGameOver = false;
 
 	public System.Action<int> OnPlayerDamaged = null;
 	private void RaiseOnPlayerDamaged(int id)
 	{
 		if (OnPlayerDamaged != null)
 			OnPlayerDamaged(id);
+	}
+
+	public System.Action<int> OnGameOver = null;
+	private void RaiseOnGameOver(int winId)
+	{
+		if (OnGameOver != null)
+			OnGameOver(winId);
 	}
 
 	void Awake()
@@ -31,7 +40,14 @@ public class GameManager : MonoBehaviour
 
 	private void InitGame()
 	{
+		Time.timeScale = 0;
 		players = new GGJCharacterEntity[2];
+	}
+
+	public void StartGame()
+	{
+		isGameOver = false;
+		Time.timeScale = 1;
 	}
 
 	public void RegisterPlayer(GGJCharacterEntity playerEntity)
@@ -58,10 +74,15 @@ public class GameManager : MonoBehaviour
 		Debug.Log("Player " + id + " died!");
 		GetPlayer(id).OnPlayerDamaged -= HandleOnPlayerDamaged;
 		GetPlayer(id).OnPlayerDeath -= HandleOnPlayerDeath;
+		RaiseOnGameOver((id == 0) ? 1 : 0);
+		Time.timeScale = 0;
+		isGameOver = true;
 	}
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.R))
+		if (isGameOver == false)
+			return;
+		if (InputManager.GetButtonDown("StartGame", PlayerID.One) || InputManager.GetButtonDown("StartGame", PlayerID.Two))
 		{
 			Scene scene = SceneManager.GetActiveScene();
 			SceneManager.LoadScene(scene.name);

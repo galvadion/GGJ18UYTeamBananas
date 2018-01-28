@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	public float lavaFloorDamage = 5f;
+	public float lavalFloorCooldown = 2f;
 	public static GameManager instance;
 
 	private GGJCharacterEntity[] players;

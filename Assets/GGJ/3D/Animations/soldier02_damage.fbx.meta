@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: be9dd6fe4856f9e4798a95449884b129
+timeCreated: 1517168374
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Bludgeon:HammerHead1
+    100002: Caballero02_Head
+    100004: Caballero02_Hips
+    100006: Caballero02_LeftArm
+    100008: Caballero02_LeftFoot
+    100010: Caballero02_LeftForeArm
+    100012: Caballero02_LeftHand
+    100014: Caballero02_LeftLeg
+    100016: Caballero02_LeftShoulder
+    100018: Caballero02_LeftToeBase
+    100020: Caballero02_LeftUpLeg
+    100022: Caballero02_Neck
+    100024: Caballero02_Reference
+    100026: Caballero02_RightArm
+    100028: Caballero02_RightFoot
+    100030: Caballero02_RightForeArm
+    100032: Caballero02_RightHand
+    100034: Caballero02_RightLeg
+    100036: Caballero02_RightShoulder
+    100038: Caballero02_RightToeBase
+    100040: Caballero02_RightUpLeg
+    100042: Caballero02_Spine
+    100044: Caballero02_Spine1
+    100046: Caballero02_Spine2
+    100048: shield_0002:pCube1
+    100050: Soldado02
+    100052: //RootNode
+    400000: Bludgeon:HammerHead1
+    400002: Caballero02_Head
+    400004: Caballero02_Hips
+    400006: Caballero02_LeftArm
+    400008: Caballero02_LeftFoot
+    400010: Caballero02_LeftForeArm
+    400012: Caballero02_LeftHand
+    400014: Caballero02_LeftLeg
+    400016: Caballero02_LeftShoulder
+    400018: Caballero02_LeftToeBase
+    400020: Caballero02_LeftUpLeg
+    400022: Caballero02_Neck
+    400024: Caballero02_Reference
+    400026: Caballero02_RightArm
+    400028: Caballero02_RightFoot
+    400030: Caballero02_RightForeArm
+    400032: Caballero02_RightHand
+    400034: Caballero02_RightLeg
+    400036: Caballero02_RightShoulder
+    400038: Caballero02_RightToeBase
+    400040: Caballero02_RightUpLeg
+    400042: Caballero02_Spine
+    400044: Caballero02_Spine1
+    400046: Caballero02_Spine2
+    400048: shield_0002:pCube1
+    400050: Soldado02
+    400052: //RootNode
+    2300000: Bludgeon:HammerHead1
+    2300002: shield_0002:pCube1
+    3300000: Bludgeon:HammerHead1
+    3300002: shield_0002:pCube1
+    4300000: Soldado02
+    4300002: shield_0002:pCube1
+    4300004: Bludgeon:HammerHead1
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Soldado02
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

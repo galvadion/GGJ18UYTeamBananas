@@ -76,6 +76,7 @@ public class GGJCharacterEntity : MonoBehaviour
 
 	public void GetDamage(float damage)
 	{
+		animator.SetTrigger("GetHit");
 		currentHealth -= damage;
 		isStunned = true;
 		weapon.shield.EnableShield(!isStunned);

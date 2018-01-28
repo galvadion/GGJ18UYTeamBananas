@@ -1346,7 +1346,7 @@ MonoBehaviour:
   jumpHeight: 1.5
   gravity: -13
   speedSmoothTime: 0.2
-  rotSmoothTime: 0.05
+  rotSmoothTime: 0.3
   playerID: 0
 --- !u!114 &114390608739253840
 MonoBehaviour:

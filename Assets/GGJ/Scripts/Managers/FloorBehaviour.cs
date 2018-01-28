@@ -7,10 +7,11 @@ public class FloorBehaviour : MonoBehaviour {
 	float timer;
 	bool active;
 	GameObject floorEntity;
+	int floorLength;
 	// Use this for initialization
 	void Start () {
 	//	 floors =   GameObject.FindGameObjectsWithTag ("Floor");
-		int floorLength =  GameObject.FindGameObjectsWithTag ("Floor").Length;
+		floorLength =  GameObject.FindGameObjectsWithTag ("Floor").Length;
 		//active = true;
 		InvokeRepeating ("trembleFloor", 5, 15);
 	}
@@ -31,9 +32,10 @@ public class FloorBehaviour : MonoBehaviour {
 	{
 		active = true;
 			timer = 0f;
-			floorEntity = GameObject.FindGameObjectsWithTag ("Floor") [Random.Range (0, 340)];
+			floorEntity = GameObject.FindGameObjectsWithTag ("Floor") [Random.Range (0, floorLength)];
 		floorEntity.GetComponent<Animator> ().SetTrigger ("destroy");
-		Destroy (floorEntity);
+		floorEntity.GetComponent<MeshRenderer> ().enabled = false;
+
 		active = false;
 
 	}

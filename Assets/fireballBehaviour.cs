@@ -8,7 +8,6 @@ public class fireballBehaviour : MonoBehaviour {
     public float thrust;
     public Rigidbody rb;
 	public Vector3 direction;
-	private bool collided = false;
 	public float velocityThreshold;
 	public float currentVelocity;
 
@@ -30,8 +29,15 @@ public class fireballBehaviour : MonoBehaviour {
 		}
 	}
 
-
-	void OnTriggerEnter (Collider other){
-		Debug.Log (gameObject.name  + " was triggered by " + other.gameObject.name);
+	public void registerHit(){
+		currentVelocity = rb.velocity.magnitude;
+		if (rb.velocity.magnitude < 15.0f){
+			var newForce = rb.velocity;
+			newForce.x += Random.Range(-4,4);
+			newForce.z += Random.Range(-4,4);
+			rb.AddForce(newForce);
+			Debug.Log ("Le agregue fuerza");
+		}
 	}
+		
 }

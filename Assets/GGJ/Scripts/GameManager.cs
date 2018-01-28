@@ -1,12 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 
 	private GGJCharacterEntity[] players;
+
+	public System.Action<int> OnPlayerDamaged = null;
+	private void RaiseOnPlayerDamaged(int id)
+	{
+		if (OnPlayerDamaged != null)
+			OnPlayerDamaged(id);
+	}
 
 	void Awake()
 	{
@@ -39,6 +47,7 @@ public class GameManager : MonoBehaviour
 
 	private void HandleOnPlayerDamaged(int id)
 	{
+		RaiseOnPlayerDamaged(id);
 		Debug.Log("Player " + id + " damaged! Health = " + GetPlayer(id).currentHealth);
 	}
 
@@ -47,5 +56,13 @@ public class GameManager : MonoBehaviour
 		Debug.Log("Player " + id + " died!");
 		GetPlayer(id).OnPlayerDamaged -= HandleOnPlayerDamaged;
 		GetPlayer(id).OnPlayerDeath -= HandleOnPlayerDeath;
+	}
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			Scene scene = SceneManager.GetActiveScene();
+			SceneManager.LoadScene(scene.name);
+		}
 	}
 }

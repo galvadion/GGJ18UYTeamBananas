@@ -6,4 +6,5 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/InputManager/Addons/JoystickMapping/Wizards/XBox Controller Clone/xbox_controller.unity
+    path: Assets/GGJ/Scenes/main test.unity
+    guid: e5ba98bdcbe3d054584648be375dfdbe

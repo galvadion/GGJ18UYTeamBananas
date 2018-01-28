@@ -8,6 +8,9 @@ public class GGJTriggerDamage : MonoBehaviour
 	private Collider col;
 	public GGJCharacterWeapon ownerWeapon
 	{ get; protected set; }
+	public AudioClip[] SwordHit;
+	public AudioClip[] SwordSwoosh;
+	public AudioClip[] SwordBlock;
 
 	private void Awake()
 	{
@@ -46,6 +49,9 @@ public class GGJTriggerDamage : MonoBehaviour
 			if (shield.ownerEntity == ownerWeapon.ownerEntity)
 				return;
 			shield.pSystem.Play();
+			var source =this.GetComponent<AudioSource>();
+			source.clip = SwordBlock[Random.Range(0, SwordBlock.Length)];
+			source.Play();
 			ownerWeapon.ownerEntity.GetBlocked();
 
 		}
@@ -57,6 +63,9 @@ public class GGJTriggerDamage : MonoBehaviour
 			if (entity == ownerWeapon.ownerEntity)
 				return;
 			ownerWeapon.ownerEntity.HitSomething();
+			var source =this.GetComponent<AudioSource>();
+			source.clip = SwordHit[Random.Range(0, SwordHit.Length)];
+			source.Play();
 			entity.GetDamage(_damage);
 
 		}

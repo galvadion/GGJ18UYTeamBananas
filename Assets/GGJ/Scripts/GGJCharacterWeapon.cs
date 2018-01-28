@@ -12,6 +12,8 @@ public class GGJCharacterWeapon : MonoBehaviour
 	public GGJCharacterEntity ownerEntity;
 	public TrailRenderer trail;
 	public Animator collidersAnimator;
+	public AudioClip[] SwordSwoosh;
+
 
 	private float currentCooldown = 0;
 
@@ -46,6 +48,10 @@ public class GGJCharacterWeapon : MonoBehaviour
 		ownerEntity.animator.SetTrigger("SwordHit");
 		collidersAnimator.SetTrigger("SwingSword");
 		trail.enabled = true;
+
+		var source =this.GetComponent<AudioSource>();
+		source.clip = SwordSwoosh[Random.Range(0, SwordSwoosh.Length)];
+		source.Play();
 	}
 
 	public void AttackEnd()

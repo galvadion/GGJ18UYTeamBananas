@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
 	private GGJCharacterEntity[] players;
 	private bool isGameOver = false;
 
+	public AudioClip[] SwordHit;
+	public AudioClip[] SwordSwoosh;
+
 	public System.Action<int> OnPlayerDamaged = null;
 	private void RaiseOnPlayerDamaged(int id)
 	{

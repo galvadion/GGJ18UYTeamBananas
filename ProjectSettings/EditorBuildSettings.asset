@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/GGJ/Scenes/main test.unity
     guid: e5ba98bdcbe3d054584648be375dfdbe
+  - enabled: 1
+    path: Assets/GGJ/Scenes/Merge.unity
+    guid: c1ffcf06e6fd8fa43876f053e4c08a1f

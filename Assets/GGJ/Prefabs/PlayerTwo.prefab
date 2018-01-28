@@ -1328,6 +1328,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53042ae60d9e15f4d9e0ef636f6e9888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SwordHit: []
+  SwordSwoosh: []
+  SwordBlock: []
 --- !u!114 &114281040057143992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1417,6 +1420,7 @@ MonoBehaviour:
   ownerEntity: {fileID: 114445237872644120}
   trail: {fileID: 96476239489505208}
   collidersAnimator: {fileID: 95140169275840632}
+  SwordSwoosh: []
 --- !u!137 &137198968444360198
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

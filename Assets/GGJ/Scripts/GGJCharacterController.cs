@@ -40,7 +40,7 @@ public class GGJCharacterController
 	{
 		mov_xInput = InputManager.GetAxis("Horizontal", _playerID);
 		mov_yInput = InputManager.GetAxis("Vertical", _playerID);
-		Debug.Log(movInput);
+		//Debug.Log(movInput);
 		movInput = new Vector3(mov_xInput,0, mov_yInput).normalized;
 
 		yVelocity += gravity * Time.deltaTime;

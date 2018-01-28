@@ -7,37 +7,51 @@ public class FloorDetection : MonoBehaviour {
 	public LayerMask layerMask;
 	private FloorEntity floors;
 	public float rayLength;
+	private Ray ray;
+	//private int _layerMask;
 
 	// Use this for initialization
 	void Start () {
-		
+		//_layerMask = (int)layerMask;
+		//_layerMask = ~_layerMask;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		var ray = new Ray (transform.position, Vector3.down);
+		ray = new Ray (transform.position + Vector3.up * 2, Vector3.down);
 		RaycastHit hit;
-		
-		if (Physics.Raycast (ray, out hit, rayLength, layerMask)) {
-			
-			var newFloor = hit.collider.GetComponent<FloorEntity> ();
-			if (newFloor.Equals (floors)) {
-				Debug.Log ("Le estoy golpeando a " + newFloor.gameObject.name);
-				newFloor.reduceCountDown ();
-			}
-			else {
-				
-				if (floors != null) {
-					Debug.Log ("Le estoy adsada a " + floors.gameObject.name);
-					floors.resetCountDown ();
-				}
-				Debug.Log ("Le estoy asdas 2 a " + newFloor.gameObject.name);
 
+		if (Physics.Raycast(ray, out hit, rayLength, layerMask))
+		{
+			Debug.Log("HIT " + hit.collider.gameObject.name);
+			var newFloor = hit.collider.GetComponent<FloorEntity>();
+			if (floors == null)
+			{
+				if (newFloor == null)
+					return;
 				floors = newFloor;
+				floors.reduceCountDown();
 			}
-		}else{
-		
+			else
+			{
+				if (newFloor == floors)
+				{
+					newFloor.reduceCountDown();
+				}
+				else
+				{
+					floors.resetCountDown();
+					floors = newFloor;
+					floors.reduceCountDown();
+				}
+			}
 		}
+
+	}
+
+	private void OnDrawGizmos()
+	{
+		Debug.DrawLine(ray.origin, ray.origin + ray.direction * 3);
 	}
 
 

@@ -62,9 +62,8 @@ public class GGJTriggerDamage : MonoBehaviour
 		}
 		else if	(other.gameObject.tag == "Fireball")
 		{
-			Debug.Log ("Impacte pelota");
 			fireballBehaviour entity = other.gameObject.GetComponent<fireballBehaviour>();
-			entity.registerHit ();
+			entity.registerHit (ownerWeapon.ownerEntity.gameObject);
 
 		}
 	}

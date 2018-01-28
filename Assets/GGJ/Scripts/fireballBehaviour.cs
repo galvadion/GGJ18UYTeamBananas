@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class fireballBehaviour : MonoBehaviour {
 
-
+	private float _damage;
     public float thrust;
     public Rigidbody rb;
 	public Vector3 direction;
@@ -29,15 +29,40 @@ public class fireballBehaviour : MonoBehaviour {
 		}
 	}
 
-	public void registerHit(){
-		currentVelocity = rb.velocity.magnitude;
-		if (rb.velocity.magnitude < 15.0f){
-			var newForce = rb.velocity;
-			newForce.x += Random.Range(-4,4);
-			newForce.z += Random.Range(-4,4);
-			rb.AddForce(newForce);
-			Debug.Log ("Le agregue fuerza");
+	private void OnCollisionEnter(Collision other)
+
+	{
+		if (other.gameObject.tag == "Shield")
+		{
+			GGJShield shield = other.gameObject.GetComponent<GGJShield>();
+			if (shield == null)
+				return;
+			
+			shield.pSystem.Play();
+
 		}
+		else if	(other.gameObject.tag == "Player")
+		{
+			GGJCharacterEntity entity = other.gameObject.GetComponent<GGJCharacterEntity>();
+			if (entity == null)
+				return;
+			entity.GetDamage(2);
+
+		}
+	}
+
+	public void registerHit(GameObject objeto){
+		
+		currentVelocity = rb.velocity.magnitude;
+		//	var newForce;
+			Debug.Log(objeto.GetComponent<Transform>().rotation.x);
+			Debug.Log(objeto.GetComponent<Transform>().rotation.y);
+			Debug.Log(objeto.GetComponent<Transform>().rotation.z);
+			var newForce =objeto.GetComponent<Transform>().forward;
+			//newForce = rb.velocity;
+		//	newForce.z =objeto.GetComponent<Transform>().forward;
+			Debug.Log(newForce.x);
+			rb.AddForce(newForce);
 	}
 		
 }

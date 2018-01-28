@@ -17,7 +17,9 @@ public class FloorDetection : MonoBehaviour {
 	void Update () {
 		var ray = new Ray (transform.position, Vector3.down);
 		RaycastHit hit;
+		
 		if (Physics.Raycast (ray, out hit, rayLength, layerMask)) {
+			
 			var newFloor = hit.collider.GetComponent<FloorEntity> ();
 			if (newFloor.Equals (floors)) {
 				Debug.Log ("Le estoy golpeando a " + newFloor.gameObject.name);
@@ -33,6 +35,8 @@ public class FloorDetection : MonoBehaviour {
 
 				floors = newFloor;
 			}
+		}else{
+		
 		}
 	}
 

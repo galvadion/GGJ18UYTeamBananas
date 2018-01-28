@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FloorEntity : MonoBehaviour
 {
+
+	private float duration;
 	private void Start()
 	{
 		int i = Random.Range(0, 4);

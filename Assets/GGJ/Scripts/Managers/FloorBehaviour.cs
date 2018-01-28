@@ -1,43 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-public class FloorBehaviour : MonoBehaviour {
+public class FloorBehaviour : MonoBehaviour
+{
 	List<GameObject> floors;
 	float timer;
 	bool active;
-	GameObject floorEntity;
-	int floorLength;
+	private List<GameObject> floorTiles;
+	private GameObject currentFloor;
 	// Use this for initialization
-	void Start () {
-	//	 floors =   GameObject.FindGameObjectsWithTag ("Floor");
-		floorLength =  GameObject.FindGameObjectsWithTag ("Floor").Length;
-		//active = true;
-		InvokeRepeating ("trembleFloor", 5, 15);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-		/*if (active) {
-
-			this.GetComponent<Animator> ().SetTrigger ("destroy");
-			Destroy (floorEntity);
-			active = false;
-		}*/
+	void Start()
+	{
+		floorTiles = GameObject.FindGameObjectsWithTag("Floor").ToList();
+		InvokeRepeating("trembleFloor", 5, 8);
 	}
 
 
 	void trembleFloor()
 	{
-		active = true;
-			timer = 0f;
-			floorEntity = GameObject.FindGameObjectsWithTag ("Floor") [Random.Range (0, floorLength)];
-		floorEntity.GetComponent<Animator> ().SetTrigger ("destroy");
-		floorEntity.GetComponent<MeshRenderer> ().enabled = false;
-
-		active = false;
-
+		timer = 0f;
+		currentFloor = floorTiles[Random.Range(0, floorTiles.Count)];
+		floorTiles.Remove(currentFloor);
+		currentFloor.GetComponent<Animator>().SetTrigger("destroy");
 	}
 
 

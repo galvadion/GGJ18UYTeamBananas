@@ -14,7 +14,7 @@ public class GGJCharacterController
 
 
 	private bool isRunning = false;
-	private Vector3 currentVelocity;
+	public Vector3 currentVelocity;
 	private float yVelocity;
 	private float xzVelocity;
 	private CharacterController _characterController;
@@ -33,6 +33,8 @@ public class GGJCharacterController
 	{
 		if (_ownerEntity.isDead)
 			return;
+		if (_ownerEntity.isStunned)
+			return;
 		movInput = new Vector3(InputManager.GetAxis("Horizontal", _ownerEntity.playerID), 0, InputManager.GetAxis("Vertical", _ownerEntity.playerID)).normalized;
 		lookInput = new Vector3(InputManager.GetAxis("LookHorizontal", _ownerEntity.playerID), 0, InputManager.GetAxis("LookVertical", _ownerEntity.playerID)).normalized;
 		yVelocity += _ownerEntity.gravity * Time.deltaTime;
@@ -45,7 +47,9 @@ public class GGJCharacterController
 			Rotate();
 
 		if (InputManager.GetAxis("RightTrigger", _ownerEntity.playerID) > 0)
-			_weapon.Attack();
+			_ownerEntity.Attack();
+
+		UpdateAnimator();
 
 	}
 
@@ -75,5 +79,10 @@ public class GGJCharacterController
 		float targetRot = Mathf.Atan2(lookInput.x, lookInput.z);
 		float smoothedRot = Mathf.SmoothDampAngle(transform.eulerAngles.y, Mathf.Rad2Deg * targetRot, ref rotSmoothVelocity, _ownerEntity.rotSmoothTime);
 		transform.localEulerAngles = Vector3.up * smoothedRot;
+	}
+
+	private void UpdateAnimator()
+	{
+		_ownerEntity.animator.SetFloat("movSpeed", xzVelocity);
 	}
 }

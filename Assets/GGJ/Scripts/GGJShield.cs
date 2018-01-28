@@ -8,14 +8,14 @@ public class GGJShield : MonoBehaviour
 	{ get; private set; }
 
 	private Collider col;
-	private MeshRenderer r;
+	//private MeshRenderer r;
 
 	public ParticleSystem pSystem;
 
 	private void Start()
 	{
 		col = GetComponent<Collider>();
-		r = GetComponent<MeshRenderer>();
+		//r = GetComponent<MeshRenderer>();
 	}
 
 	public void SetOwner(GGJCharacterEntity entity)
@@ -25,10 +25,10 @@ public class GGJShield : MonoBehaviour
 
 	public void EnableShield(bool enableShield = true)
 	{
-		if (enableShield)
-			r.material.SetColor("_Color", Color.red);
-		else
-			r.material.SetColor("_Color", Color.white);
+		//if (enableShield)
+		//	r.material.SetColor("_Color", Color.red);
+		//else
+		//	r.material.SetColor("_Color", Color.white);
 		col.enabled = enableShield;
 	}
 }

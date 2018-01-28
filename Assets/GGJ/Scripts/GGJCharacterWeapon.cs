@@ -10,9 +10,10 @@ public class GGJCharacterWeapon : MonoBehaviour
 	public float damage = 2f;
 	public float cooldown = 1f;
 	public GGJCharacterEntity ownerEntity;
-	private float currentCooldown = 0;
 	public TrailRenderer trail;
+	public Animator collidersAnimator;
 
+	private float currentCooldown = 0;
 
 	private void Start()
 	{
@@ -43,6 +44,7 @@ public class GGJCharacterWeapon : MonoBehaviour
 		weaponDamageTrigger.EnableTrigger(true);
 		currentCooldown = cooldown;
 		ownerEntity.animator.SetTrigger("SwordHit");
+		collidersAnimator.SetTrigger("SwingSword");
 		trail.enabled = true;
 	}
 

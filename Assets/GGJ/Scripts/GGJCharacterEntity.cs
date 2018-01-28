@@ -93,6 +93,7 @@ public class GGJCharacterEntity : MonoBehaviour
 	public void GetBlocked()
 	{
 		animator.SetTrigger("ShieldBlock");
+		weapon.collidersAnimator.SetTrigger("SwingInterrupted");
 		AttackEnd();
 		Debug.Log("<b> BLOCKED </b>");
 	}

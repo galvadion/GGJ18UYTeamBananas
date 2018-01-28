@@ -1433,16 +1433,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwordHit:
   - {fileID: 8300000, guid: 4c3712cc19997466cac12368c6f3a07b, type: 3}
-  - {fileID: 8300000, guid: 001eece2a278649f1a7721f4d7d812fd, type: 3}
-  - {fileID: 8300000, guid: e3cb40242a14c4e6d9a046746c16cd41, type: 3}
-  - {fileID: 8300000, guid: ee600090aae7f400d8c41c0e6cb8a0ca, type: 3}
+  - {fileID: 8300000, guid: 885d1163ec34548999cdfd2752c327a2, type: 3}
   - {fileID: 8300000, guid: 8f43bdbc3f2c344a79da5888e88f1ad7, type: 3}
+  - {fileID: 8300000, guid: ee600090aae7f400d8c41c0e6cb8a0ca, type: 3}
+  - {fileID: 8300000, guid: e3cb40242a14c4e6d9a046746c16cd41, type: 3}
   SwordSwoosh:
   - {fileID: 8300000, guid: fcdce78310f374398945ac12a1a57ae3, type: 3}
-  - {fileID: 8300000, guid: 7b26b838a83644c329653e1fac72e2a3, type: 3}
-  - {fileID: 8300000, guid: f371ad1915e264789b4fd5e9ccb82e2e, type: 3}
+  - {fileID: 8300000, guid: 49b297f4ec94142ab95c0997fb4af315, type: 3}
+  - {fileID: 8300000, guid: 6d907cb9ec01b4715829ec48c33f8c7a, type: 3}
   SwordBlock:
-  - {fileID: 8300000, guid: 4d0b4beff682040339756ec23d67a760, type: 3}
+  - {fileID: 8300000, guid: 128cd35d77e0246b48cbddea6962029d, type: 3}
 --- !u!114 &114318328840365690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1508,10 +1508,7 @@ MonoBehaviour:
   ownerEntity: {fileID: 114318328840365690}
   trail: {fileID: 96744210489045624}
   collidersAnimator: {fileID: 95605964558521054}
-  SwordSwoosh:
-  - {fileID: 8300000, guid: 6d907cb9ec01b4715829ec48c33f8c7a, type: 3}
-  - {fileID: 8300000, guid: 7b26b838a83644c329653e1fac72e2a3, type: 3}
-  - {fileID: 8300000, guid: 2019c475d0d1147b5aa0c587e794222a, type: 3}
+  SwordSwoosh: []
 --- !u!114 &114958115880568626
 MonoBehaviour:
   m_ObjectHideFlags: 1

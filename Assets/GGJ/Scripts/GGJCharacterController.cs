@@ -6,18 +6,6 @@ using TeamUtility.IO;
 public class GGJCharacterController
 	: MonoBehaviour
 {
-	public float walkSpeed = 3f;
-	public float runSpeed = 6f;
-
-	public float jumpHeight = 1f;
-	public float gravity = -11f;
-
-	public float speedSmoothTime = 0.2f;
-	public float rotSmoothTime = 0.1f;
-
-	[SerializeField]
-	private PlayerID _playerID;
-
 	private float speedSmoothVelocity;
 	private float rotSmoothVelocity;
 	private float currentHorizontalSpeed;
@@ -29,68 +17,63 @@ public class GGJCharacterController
 	private Vector3 currentVelocity;
 	private float yVelocity;
 	private float xzVelocity;
-	private CharacterController characterController;
+	private CharacterController _characterController;
 	private GGJCharacterWeapon _weapon;
+	private GGJCharacterEntity _ownerEntity;
 
 	void Start()
 	{
-		characterController = GetComponent<CharacterController>();
+		_ownerEntity = GetComponent<GGJCharacterEntity>();
+		_characterController = GetComponent<CharacterController>();
 		_weapon = GetComponent<GGJCharacterWeapon>();
-		GameManager.instance.RegisterPlayer((int)_playerID, this.gameObject);
+		_weapon.SetOwner(_ownerEntity);
 	}
 
 	void Update()
 	{
-		movInput = new Vector3(InputManager.GetAxis("Horizontal", _playerID), 0, InputManager.GetAxis("Vertical", _playerID)).normalized;
-		lookInput = new Vector3(InputManager.GetAxis("LookHorizontal", _playerID), 0, InputManager.GetAxis("LookVertical", _playerID)).normalized;
+		if (_ownerEntity.isDead)
+			return;
+		movInput = new Vector3(InputManager.GetAxis("Horizontal", _ownerEntity.playerID), 0, InputManager.GetAxis("Vertical", _ownerEntity.playerID)).normalized;
+		lookInput = new Vector3(InputManager.GetAxis("LookHorizontal", _ownerEntity.playerID), 0, InputManager.GetAxis("LookVertical", _ownerEntity.playerID)).normalized;
+		yVelocity += _ownerEntity.gravity * Time.deltaTime;
 
-		yVelocity += gravity * Time.deltaTime;
-
-		if ((InputManager.GetButtonDown("Jump", _playerID)))
+		if ((InputManager.GetButtonDown("Jump", _ownerEntity.playerID)))
 			Jump();
 
 		Movement();
 		if (lookInput != Vector3.zero)
 			Rotate();
 
-		if (InputManager.GetAxis("RightTrigger", _playerID) > 0)
+		if (InputManager.GetAxis("RightTrigger", _ownerEntity.playerID) > 0)
 			_weapon.Attack();
 
 	}
 
 	private void Jump()
 	{
-		if (characterController.isGrounded)
-			yVelocity = Mathf.Sqrt(-2 * gravity * jumpHeight);
+		if (_characterController.isGrounded)
+			yVelocity = Mathf.Sqrt(-2 * _ownerEntity.gravity * _ownerEntity.jumpHeight);
 	}
 
 	private void Movement()
 	{
 		isRunning = Input.GetKey(KeyCode.LeftShift);
 
-		float targetSpeed = ((isRunning == true) ? runSpeed : walkSpeed) * movInput.magnitude;
-		xzVelocity = Mathf.SmoothDamp(xzVelocity, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
-
+		float targetSpeed = ((isRunning == true) ? _ownerEntity.runSpeed : _ownerEntity.walkSpeed) * movInput.magnitude;
+		xzVelocity = Mathf.SmoothDamp(xzVelocity, targetSpeed, ref speedSmoothVelocity, _ownerEntity.speedSmoothTime);
 		currentVelocity = movInput * xzVelocity + Vector3.up * yVelocity;
-		characterController.Move(currentVelocity * Time.deltaTime);
+		_characterController.Move(currentVelocity * Time.deltaTime);
 
-		xzVelocity = new Vector2(characterController.velocity.x, characterController.velocity.z).magnitude;
+		xzVelocity = new Vector2(_characterController.velocity.x, _characterController.velocity.z).magnitude;
 
-		if (characterController.isGrounded)
+		if (_characterController.isGrounded)
 			yVelocity = -0.00001f;
 	}
 
 	private void Rotate()
 	{
-		////Calculamos rotacion según el dirInput y le sumamos rotación según la cámara
 		float targetRot = Mathf.Atan2(lookInput.x, lookInput.z);
-		Debug.Log(Mathf.Rad2Deg * targetRot);
-		//Obtenemos la cantidad de rotación suavizada (https://docs.unity3d.com/ScriptReference/Mathf.SmoothDampAngle.html)
-		float smoothedRot = Mathf.SmoothDampAngle(transform.eulerAngles.y, Mathf.Rad2Deg * targetRot, ref rotSmoothVelocity, rotSmoothTime);
-		//Aplicamos la rotación suavizada a nuestra rotación local. Sería lo mismo escribir:
-		// transform.localEulerAngles = new Vector3(0, smoothedRot, 0);
-		// o también:
-		//transform.localRotation = Quaternion.Euler(0, smoothedRot, 0);
+		float smoothedRot = Mathf.SmoothDampAngle(transform.eulerAngles.y, Mathf.Rad2Deg * targetRot, ref rotSmoothVelocity, _ownerEntity.rotSmoothTime);
 		transform.localEulerAngles = Vector3.up * smoothedRot;
 	}
 }

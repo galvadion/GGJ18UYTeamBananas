@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FloorEntity : MonoBehaviour
 {
+
+	private float duration;
 	private void Start()
 	{
 		int i = Random.Range(0, 4);
@@ -19,5 +21,18 @@ public class FloorEntity : MonoBehaviour
 		{
 			transform.Rotate(Vector3.up, -90);
 		}
+	}
+
+	public void reduceCountDown(){
+		duration -= Time.deltaTime;
+		
+		if (duration < 0f) {
+			this.GetComponent<Animator> ().SetTrigger ("destroy");
+			this.GetComponent<MeshRenderer> ().enabled = false;
+		}
+	}
+
+	public void resetCountDown(){
+		duration = 5f;
 	}
 }

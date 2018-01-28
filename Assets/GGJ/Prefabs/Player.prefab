@@ -455,6 +455,7 @@ GameObject:
   - component: {fileID: 114318328840365690}
   - component: {fileID: 114958115880568626}
   - component: {fileID: 114774420382850926}
+  - component: {fileID: 114735193850383850}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1370,7 +1371,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68ea4f2de70a8f40a02cc9a6b54d487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pSystem: {fileID: 198482567839309582}
+  maxHealth: 6
+  stunTime: 1
+  walkSpeed: 2
+  runSpeed: 6
+  jumpHeight: 1
+  gravity: -15
+  speedSmoothTime: 0.2
+  rotSmoothTime: 0.05
+  playerID: 0
+--- !u!114 &114735193850383850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1783915859411158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a903b4d25e509294dbbbd64c6b70dcc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  rayLength: 1
 --- !u!114 &114774420382850926
 MonoBehaviour:
   m_ObjectHideFlags: 1

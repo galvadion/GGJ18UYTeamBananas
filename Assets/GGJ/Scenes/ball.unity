@@ -231,7 +231,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 199894230352022378, guid: 8015894a43618487f9b1504e1871451f, type: 2}
+    - {fileID: 198701400346005394, guid: 8015894a43618487f9b1504e1871451f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 8015894a43618487f9b1504e1871451f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &583968366
@@ -1377,13 +1379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ef2a405886ac9448b3f6beceedec85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 3
-  runSpeed: 6
-  jumpHeight: 1
-  gravity: -11
-  speedSmoothTime: 0.2
-  rotSmoothTime: 0.1
-  _playerID: 0
+  currentVelocity: {x: 0, y: 0, z: 0}
 --- !u!143 &1329915945
 CharacterController:
   m_ObjectHideFlags: 0

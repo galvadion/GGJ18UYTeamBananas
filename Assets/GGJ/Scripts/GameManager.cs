@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
 	private GGJCharacterEntity[] players;
 
+	public AudioClip[] SwordHit;
+	public AudioClip[] SwordSwoosh;
+
 	public System.Action<int> OnPlayerDamaged = null;
 	private void RaiseOnPlayerDamaged(int id)
 	{

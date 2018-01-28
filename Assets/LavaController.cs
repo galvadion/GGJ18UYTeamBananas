@@ -20,4 +20,11 @@ public class LavaController : MonoBehaviour {
 			Debug.Log("ACA VA EL DAÑo");
 		}
 	}
+
+	public void OnCollisionEnter(Collision other)
+	{
+		if(other.gameObject.tag=="Player"){
+			Debug.Log("ACA VA EL collision");
+		}
+	}
 }

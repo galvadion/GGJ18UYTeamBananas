@@ -125,7 +125,6 @@ public class GGJCharacterEntity : MonoBehaviour
 	public void AttackEnd()
 	{
 		isAttacking = false;
-		hitSomething = false;
 		weapon.AttackEnd();
 	}
 }

@@ -11,12 +11,14 @@ public class GGJCharacterWeapon : MonoBehaviour
 	public float cooldown = 1f;
 	public GGJCharacterEntity ownerEntity;
 	private float currentCooldown = 0;
+	public TrailRenderer trail;
 
 
 	private void Start()
 	{
 		weaponDamageTrigger.SetDamage(damage);
 		weaponDamageTrigger.EnableTrigger(false);
+		trail.enabled = false;
 	}
 
 	private void Update()
@@ -41,10 +43,12 @@ public class GGJCharacterWeapon : MonoBehaviour
 		weaponDamageTrigger.EnableTrigger(true);
 		currentCooldown = cooldown;
 		ownerEntity.animator.SetTrigger("SwordHit");
+		trail.enabled = true;
 	}
 
 	public void AttackEnd()
 	{
 		weaponDamageTrigger.EnableTrigger(false);
+		trail.enabled = false;
 	}
 }

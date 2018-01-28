@@ -45,6 +45,7 @@ public class GGJTriggerDamage : MonoBehaviour
 				return;
 			if (shield.ownerEntity == ownerWeapon.ownerEntity)
 				return;
+			shield.pSystem.Play();
 			ownerWeapon.ownerEntity.GetBlocked();
 
 		}

@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 guid: c52bfe61aba0c644faeb7cc6d3d2483e
+<<<<<<< HEAD
 timeCreated: 1517086519
 licenseType: Free
 NativeFormatImporter:
   mainObjectFileID: 2100000
+=======
+timeCreated: 1517147340
+licenseType: Free
+NativeFormatImporter:
+  mainObjectFileID: 0
+>>>>>>> refs/remotes/origin/develop-agbo
   userData: 
   assetBundleName: 
   assetBundleVariant: 

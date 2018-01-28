@@ -2,23 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloorEntity : MonoBehaviour {
-
-	private float duration;
-
-	// Use this for initialization
-	void Start () {
-		duration = 5f;
-	}
-
-	// Update is called once per frame
-	void Update () {
-
+public class FloorEntity : MonoBehaviour
+{
+	private void Start()
+	{
+		int i = Random.Range(0, 4);
+		if (i == 1)
+		{
+			transform.Rotate(Vector3.up, 90);
+		}
+		else if (i == 2)
+		{
+			transform.Rotate(Vector3.up, 180);
+		}
+		else if (i == 3)
+		{
+			transform.Rotate(Vector3.up, -90);
+		}
 	}
 
 	public void reduceCountDown(){
 		duration -= Time.deltaTime;
-		Debug.Log ("Iam reducing a cooldown" + duration + this.gameObject.name);
+		
 		if (duration < 0f) {
 			this.GetComponent<Animator> ().SetTrigger ("destroy");
 			this.GetComponent<MeshRenderer> ().enabled = false;
@@ -26,7 +31,6 @@ public class FloorEntity : MonoBehaviour {
 	}
 
 	public void resetCountDown(){
-		Debug.Log ("Iam reloading a cooldown named" + this.gameObject.name);
 		duration = 5f;
 	}
 }

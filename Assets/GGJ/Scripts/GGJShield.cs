@@ -10,6 +10,8 @@ public class GGJShield : MonoBehaviour
 	private Collider col;
 	private MeshRenderer r;
 
+	public ParticleSystem pSystem;
+
 	private void Start()
 	{
 		col = GetComponent<Collider>();

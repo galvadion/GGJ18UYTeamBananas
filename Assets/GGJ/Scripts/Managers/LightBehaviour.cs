@@ -14,6 +14,6 @@ public class LightBehaviour : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		transform.RotateAround (Vector3.zero, Vector3.left, 10 * Time.deltaTime);
+		transform.RotateAround (Vector3.zero, Vector3.left, 5 * Time.deltaTime);
 	}
 }

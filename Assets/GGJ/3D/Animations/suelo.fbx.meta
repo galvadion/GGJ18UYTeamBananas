@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 5e3c5856f29f79b4b8219cb3ffd02064
-timeCreated: 1517087904
-=======
-guid: df86bd0c02e040e4aa4be10f115f4f26
-timeCreated: 1517086519
->>>>>>> refs/remotes/origin/development
-licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
@@ -14,19 +7,11 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pCube4
-<<<<<<< HEAD
-    4300002: SueloGEO
+    4300000: SueloGEO
     9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
-=======
-    9500000: //RootNode
-  materials:
-    importMaterials: 1
-    materialName: 1
->>>>>>> refs/remotes/origin/development
     materialSearch: 1
   animations:
     legacyGenerateAnimations: 4
@@ -72,11 +57,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-<<<<<<< HEAD
     tangentImportMode: 3
-=======
-    tangentImportMode: 0
->>>>>>> refs/remotes/origin/development
     normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0

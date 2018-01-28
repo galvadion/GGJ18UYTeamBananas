@@ -236,6 +236,20 @@ MonoBehaviour:
       type: 3
       axis: 8
       joystick: 0
+    - name: StartGame
+      description: 
+      positive: 337
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
     isExpanded: 1
   - name: OSX_Gamepad
     axes:
@@ -861,6 +875,20 @@ MonoBehaviour:
       type: 3
       axis: 5
       joystick: 0
+    - name: StartGame
+      description: 
+      positive: 337
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 1
     isExpanded: 1
   playerOneDefault: Windows_Gamepad
   playerTwoDefault: Windows_Gamepad_2

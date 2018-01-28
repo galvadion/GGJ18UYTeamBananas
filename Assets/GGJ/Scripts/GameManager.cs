@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	public float lavaFloorDamage = 5f;
+	public float lavalFloorCooldown = 2f;
 	public static GameManager instance;
 
 	private GGJCharacterEntity[] players;
+
+	public AudioClip[] SwordHit;
+	public AudioClip[] SwordSwoosh;
 
 	public System.Action<int> OnPlayerDamaged = null;
 	private void RaiseOnPlayerDamaged(int id)

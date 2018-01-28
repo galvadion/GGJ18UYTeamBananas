@@ -6,8 +6,11 @@ public class FloorEntity : MonoBehaviour
 {
 
 	private float duration;
+	private LavaFireTrigger fireTrigger;
+
 	private void Start()
 	{
+		duration = 3f;
 		int i = Random.Range(0, 4);
 		if (i == 1)
 		{
@@ -21,18 +24,24 @@ public class FloorEntity : MonoBehaviour
 		{
 			transform.Rotate(Vector3.up, -90);
 		}
+		fireTrigger = GetComponentInChildren<LavaFireTrigger>();
 	}
 
 	public void reduceCountDown(){
 		duration -= Time.deltaTime;
 		
 		if (duration < 0f) {
-			this.GetComponent<Animator> ().SetTrigger ("destroy");
-			this.GetComponent<MeshRenderer> ().enabled = false;
+			this.GetComponent<Animator> ().SetBool("destroy", true);
+			//this.GetComponent<MeshRenderer> ().enabled = false;
 		}
 	}
 
 	public void resetCountDown(){
-		duration = 5f;
+		duration = 3f;
+	}
+
+	public void enableFireTrigger()
+	{
+		fireTrigger.EnableTrigger();
 	}
 }
